@@ -12,7 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			favoritos: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -23,6 +24,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+			},
+			
+			agregarFavorito: (id, value) => {
+				const store = getStore();
+				const actions = getActions();
+				let valueExist, valueId;
+				for (let i = 0; i < store.favoritos.length; i++) {
+					if(store.favoritos[i].index === id ){
+						valueExist = true
+						valueId = i;
+					}
+				}
+				if (valueExist === true) {
+					actions.borrarFavorito(valueId)
+				} else {
+					setStore({favoritos: [...store.favoritos, {index: id, label: value}]})
+				}
+            },
+
+			borrarFavorito: (id) => {
+				const store = getStore();
+				setStore({favoritos: [
+					...store.favoritos.slice(0, id),
+					...store.favoritos.slice(id + 1, store.favoritos.length)
+				]})
 			},
 			changeColor: (index, color) => {
 				//get the store

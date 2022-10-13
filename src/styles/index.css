@@ -1,3 +1,41 @@
 /* 
     General Styles
 */
+   body {
+    font-family: 'Kanit', sans-serif;
+   }
+
+   h5, .h5, h3, .h3, h2, .h2, h1, .h1 {
+    font-family: 'Silkscreen', cursive;
+  }
+
+/* Colores de barra del navegador */
+  body::-webkit-scrollbar {
+    width: 12px;              
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: rgb(33, 131, 131);        
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(65, 10, 82);   
+    border-radius: 20px;     
+    border: 3px solid rgb(33, 131, 131);  
+  }
+
+  /* Colores de barra internas */
+  div::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  div::-webkit-scrollbar-track {
+    background: rgb(33, 131, 131);    
+    border-radius: 10px;
+  }
+  
+  div::-webkit-scrollbar-thumb {
+    background-color: rgb(65, 10, 82);
+    border-radius: 20px;
+    border: 3px solid rgb(33, 131, 131);
+  }
